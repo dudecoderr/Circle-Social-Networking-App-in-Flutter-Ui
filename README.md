@@ -1,16 +1,27 @@
-# circle_social_networking_app_in_flutter
+# Circle Social Networking App in Flutter Ui
 
-A new Flutter project.
+#### Github Link : https://github.com/dudecoderr/Circle-Social-Networking-App-in-Flutter-Ui.git
 
-## Getting Started
+                               
+# Changelog
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Note: _**last updated january 2023 configured project to latest flutter version 3.7.5**_
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+<img src="" width="200%">
+</p>
+
+**Packages used:**
+
+ - flutter_screenutil: ^5.6.0
+ - get: ^4.6.5
+ - simple_animations: ^4.0.1
+ - supercharged: ^2.1.1
+ - geolocator: ^9.0.1
+ - flutter_google_places: ^0.3.0
+ - font_awesome_flutter: ^10.2.1
+ - google_maps_flutter: ^2.2.3
+ - filter_list: ^1.0.2
+ - flutter_staggered_grid_view: ^0.4.0
