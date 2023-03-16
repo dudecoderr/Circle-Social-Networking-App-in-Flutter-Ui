@@ -21,15 +21,18 @@ class _InviteShowDilodScreenState extends State<InviteShowDilodScreen> {
   bool selected = false;
 
   _navigateAndDisplaySelection(BuildContext context) async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return const AlertDialog(
-            content: InviteProfileFriendsScreen(),
-          );
-        },
-      ),
+    final result = await showDialog(
+      context: context,
+      barrierColor: Colors.white54, // set barrier color here
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25.r),
+          ),
+          insetPadding: EdgeInsets.all(20),
+          child: InviteProfileFriendsScreen(),
+        );
+      },
     );
     if (result != null) {
       setState(() {
@@ -37,12 +40,43 @@ class _InviteShowDilodScreenState extends State<InviteShowDilodScreen> {
       });
     }
   }
+/*  _navigateAndDisplaySelection(BuildContext context) async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.r),
+            ),
+            insetPadding: EdgeInsets.all(20),
+            actionsPadding: EdgeInsets.zero,
+            buttonPadding: EdgeInsets.zero,
+            contentPadding: EdgeInsets.zero,
+            content: InviteProfileFriendsScreen(),
+          );
+        },
+
+      ),
+    );
+    if (result != null) {
+      setState(() {
+        dataBack = result;
+      });
+    }
+  }*/
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 500.h,
       width: 350.w,
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        // color: Colors.red.shade200,
+        borderRadius: BorderRadius.all(Radius.circular(25.r)),
+      ),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -228,7 +262,7 @@ class _InviteShowDilodScreenState extends State<InviteShowDilodScreen> {
               ),
             ),
 
-            SizedBox(height: 50.h),
+            SizedBox(height: 35.h),
 
             ///__________ btn
 
@@ -240,9 +274,17 @@ class _InviteShowDilodScreenState extends State<InviteShowDilodScreen> {
                 child: ElevatedButton(
                   onPressed: () {
                     showDialog(
+                      barrierColor: Colors.white12,
                       context: context,
                       builder: (context) {
-                        return const AlertDialog(
+                        return AlertDialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25.r),
+                          ),
+                          insetPadding: EdgeInsets.all(20),
+                          actionsPadding: EdgeInsets.zero,
+                          buttonPadding: EdgeInsets.zero,
+                          contentPadding: EdgeInsets.zero,
                           content: Success_Screen(),
                         );
                       },

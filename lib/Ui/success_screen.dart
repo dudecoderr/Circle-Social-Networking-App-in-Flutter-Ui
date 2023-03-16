@@ -17,11 +17,16 @@ class _Success_ScreenState extends State<Success_Screen> {
     return Container(
       height: 500.h,
       width: 355.w,
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        // color: Colors.red.shade200,
+        borderRadius: BorderRadius.all(Radius.circular(25.r)),
+      ),
       child: Stack(
         children: [
           SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 FadeAnimation(
                   delay: 1,
@@ -39,9 +44,11 @@ class _Success_ScreenState extends State<Success_Screen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 15.h),
                 FadeAnimation(
-                    delay: 1, child: Image.asset("assets/success.gif")),
+                    delay: 1,
+                    child: Container(
+                        height: 200.h,
+                        child: Image.asset("assets/success.gif"))),
                 FadeAnimation(
                   delay: 1.5,
                   child: FittedBox(

@@ -24,6 +24,12 @@ class _InviteProfileFriendsScreenState
     return Container(
       height: 500.h,
       width: 360.w,
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        // color: Colors.red.shade200,
+        borderRadius: new BorderRadius.all(new Radius.circular(25.r)),
+      ),
       child: Stack(
         children: [
           SingleChildScrollView(

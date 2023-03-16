@@ -35,14 +35,25 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
   ///__________________________ select dialog box container class ____________________
   Future<void> _openFilterDialog() async {
     await showDialog<void>(
+      barrierColor: Colors.white12,
       context: context,
       builder: (BuildContext context) {
         return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.r),
+          ),
+          insetPadding: EdgeInsets.all(20),
           child: StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
               return Container(
-                color: Colors.white, // set the background color here
-                height: 550.h,
+                height: 500.h,
+                width: 350.w,
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(25.r)),
+                ),
                 child: Column(
                   children: [
                     SizedBox(height: 10.h),
@@ -167,9 +178,15 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 500.h,
       width: 350.w,
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        // color: Colors.red.shade200,
+        borderRadius: BorderRadius.all(Radius.circular(25.r)),
+      ),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -396,9 +413,17 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
                 child: ElevatedButton(
                   onPressed: () {
                     showDialog(
+                      barrierColor: Colors.white12,
                       context: context,
                       builder: (context) {
-                        return const AlertDialog(
+                        return AlertDialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25.r),
+                          ),
+                          insetPadding: EdgeInsets.all(20),
+                          actionsPadding: EdgeInsets.zero,
+                          buttonPadding: EdgeInsets.zero,
+                          contentPadding: EdgeInsets.zero,
                           content: AgeRangeShowDilog(),
                         );
                       },

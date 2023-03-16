@@ -217,9 +217,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       InkWell(
                         onTap: () {
                           showDialog(
+                            barrierColor: Colors.white70,
                             context: context,
                             builder: (context) {
-                              return const AlertDialog(
+                              return AlertDialog(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(25.r),
+                                ),
+                                insetPadding: EdgeInsets.all(20),
+                                actionsPadding: EdgeInsets.zero,
+                                buttonPadding: EdgeInsets.zero,
+                                contentPadding: EdgeInsets.zero,
                                 content: ShowDialogContainer(),
                               );
                             },
