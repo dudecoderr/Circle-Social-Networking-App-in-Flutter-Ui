@@ -39,6 +39,13 @@ List<ContactModel> contacts = [
   ContactModel("assets/profile_5.png", "Bima Sakti Banget", false),
   ContactModel("assets/profile_6.png", "Bartolomeo Kuma", false),
   ContactModel("assets/profile_3.png", "Christine Caroline", false),
+  ContactModel("assets/profile_1.png", "Abil Le Roy", false),
+  ContactModel("assets/profile_2.png", "Anastasya Kokfasih", false),
+  ContactModel("assets/profile_3.png", "Aaroon Davies", false),
+  ContactModel("assets/profile_4.png", "Alexander Arnold", false),
+  ContactModel("assets/profile_5.png", "Bima Sakti Banget", false),
+  ContactModel("assets/profile_6.png", "Bartolomeo Kuma", false),
+  ContactModel("assets/profile_3.png", "Christine Caroline", false),
 ];
 
 List<ContactModel> selectedContacts = [];

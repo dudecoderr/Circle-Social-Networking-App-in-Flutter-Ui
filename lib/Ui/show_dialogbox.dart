@@ -22,16 +22,6 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
     super.initState();
   }
 
-  void onUserTap(User user) {
-    setState(() {
-      if (selectedUserList.contains(user)) {
-        selectedUserList.remove(user);
-      } else {
-        selectedUserList.add(user);
-      }
-    });
-  }
-
   ///__________________________ select dialog box container class ____________________
   Future<void> _openFilterDialog() async {
     await showDialog<void>(
@@ -39,6 +29,7 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
       context: context,
       builder: (BuildContext context) {
         return Dialog(
+          elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.r),
           ),
@@ -46,7 +37,7 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
           child: StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
               return Container(
-                height: 500.h,
+                height: 540.h,
                 width: 350.w,
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -97,12 +88,16 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
                           final user = userList[index];
                           return InkWell(
                             onTap: () {
-                              print("select___${userList[index].name}");
-                              userList[index].isSelected =
-                                  !userList[index].isSelected;
-                              setState(() {
-                                onUserTap(user);
-                              });
+                              if (userList[index].isSelected) {
+                                print("select___${userList[index].name}");
+                                userList[index].isSelected = false;
+                                selectedUserList.remove(userList[index]);
+                              } else if (selectedUserList.length < 3) {
+                                // User is not selected and limit not reached, so select
+                                userList[index].isSelected = true;
+                                selectedUserList.add(userList[index]);
+                              }
+                              setState(() {});
                             },
                             child: Container(
                               margin: EdgeInsets.all(10),
@@ -179,12 +174,11 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500.h,
+      height: 540.h,
       width: 350.w,
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
-        // color: Colors.red.shade200,
         borderRadius: BorderRadius.all(Radius.circular(25.r)),
       ),
       child: SingleChildScrollView(
@@ -290,24 +284,27 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
                         fontFamily: "Poppins-SemiBold"),
                   ),
                   Spacer(),
-                  InkWell(
-                    onTap: _openFilterDialog,
-                    child: Row(
-                      children: [
-                        Text(
-                          "2/3",
-                          style: TextStyle(
-                              fontSize: 15.sp,
-                              color: Colors.grey,
-                              fontFamily: "Poppins-Bold"),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: Color(0xffff8561),
-                        ),
-                      ],
-                    ),
-                  ),
+                  Obx(() {
+                    selectedUserList.value;
+                    return InkWell(
+                      onTap: _openFilterDialog,
+                      child: Row(
+                        children: [
+                          Text(
+                            '${selectedUserList.length}/3',
+                            style: TextStyle(
+                                fontSize: 15.sp,
+                                color: Colors.grey,
+                                fontFamily: "Poppins-Bold"),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: Color(0xffff8561),
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
                 ],
               ),
             ),
@@ -337,7 +334,7 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
                               return Container(
-                                height: 40.h,
+                                height: 35.h,
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 5, horizontal: 15),
                                 margin: EdgeInsets.symmetric(horizontal: 5),
@@ -404,7 +401,7 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
                         fit: BoxFit.cover)),
               ),
             ),
-            SizedBox(height: 15.h),
+            SizedBox(height: 20.h),
             FadeAnimation(
               delay: 4.5,
               child: SizedBox(
@@ -417,6 +414,7 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
+                          elevation: 0,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(25.r),
                           ),
@@ -431,7 +429,7 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
-                    elevation: 2,
+                    elevation: 1,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50.r),
                     ),
@@ -459,7 +457,7 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xfff1f0ec),
-                    elevation: 2,
+                    elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50.r),
                     ),

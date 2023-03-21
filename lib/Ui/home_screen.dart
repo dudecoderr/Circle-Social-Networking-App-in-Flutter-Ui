@@ -221,6 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
+                                elevation: 0,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25.r),
                                 ),

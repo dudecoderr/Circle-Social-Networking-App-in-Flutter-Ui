@@ -35,46 +35,49 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 2),
               child: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(height: 50.h),
-                    FadeAnimation(
-                        delay: 1,
-                        child: Container(
-                          child: Image.asset(
-                            "assets/home_img_1.png",
-                            fit: BoxFit.cover,
-                          ),
-                        )),
-                    SizedBox(height: 40.h),
-                    FadeAnimation(
-                      delay: 1.5,
-                      child: FittedBox(
-                        child: Text(tital,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 28.sp,
-                                color: Colors.white,
-                                fontFamily: "Poppins-SemiBold",
-                                fontWeight: FontWeight.w600,
-                                wordSpacing: 1)),
+                child: Container(
+                  // color: Colors.yellow,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 50.h),
+                      FadeAnimation(
+                          delay: 1,
+                          child: Container(
+                            child: Image.asset(
+                              "assets/home_img_1.png",
+                              fit: BoxFit.cover,
+                            ),
+                          )),
+                      SizedBox(height: 40.h),
+                      FadeAnimation(
+                        delay: 1.5,
+                        child: FittedBox(
+                          child: Text(tital,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontSize: 28.sp,
+                                  color: Colors.white,
+                                  fontFamily: "Poppins-SemiBold",
+                                  fontWeight: FontWeight.w600,
+                                  wordSpacing: 1)),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10.h),
-                    FadeAnimation(
-                      delay: 2,
-                      child: FittedBox(
-                        child: Text(titalSub,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontFamily: "Poppins-Regular",
-                              color: Colors.white70,
-                            )),
+                      SizedBox(height: 10.h),
+                      FadeAnimation(
+                        delay: 2,
+                        child: FittedBox(
+                          child: Text(titalSub,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontFamily: "Poppins-Regular",
+                                color: Colors.white70,
+                              )),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
