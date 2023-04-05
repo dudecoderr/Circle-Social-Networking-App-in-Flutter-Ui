@@ -29,7 +29,7 @@ class _AgeRangeShowDilogState extends State<AgeRangeShowDilog> {
       child: Container(
         height: 540.h,
         width: 350.w,
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           shape: BoxShape.rectangle,
           // color: Colors.red.shade200,
@@ -69,7 +69,7 @@ class _AgeRangeShowDilogState extends State<AgeRangeShowDilog> {
                         ],
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Align(
                       alignment: Alignment.bottomRight,
                       child: InkWell(
@@ -172,7 +172,7 @@ class _AgeRangeShowDilogState extends State<AgeRangeShowDilog> {
                           fontWeight: FontWeight.w500,
                           fontFamily: "Poppins-SemiBold"),
                     ),
-                    Spacer(),
+                    const Spacer(),
 
                     ///___________________ km change in slider scroll
                     Text(
@@ -183,7 +183,7 @@ class _AgeRangeShowDilogState extends State<AgeRangeShowDilog> {
                           fontWeight: FontWeight.w600,
                           fontFamily: "Poppins-SemiBold"),
                     ),
-                    SizedBox(width: 3),
+                    const SizedBox(width: 3),
                     Text(
                       "Km",
                       style: TextStyle(
@@ -208,7 +208,6 @@ class _AgeRangeShowDilogState extends State<AgeRangeShowDilog> {
                     value: _value.toDouble(),
                     min: 1.0,
                     max: 200.0,
-                    // divisions: 10,
                     activeColor: Colors.deepOrange,
                     inactiveColor: Colors.deepOrange,
                     thumbColor: Colors.black,

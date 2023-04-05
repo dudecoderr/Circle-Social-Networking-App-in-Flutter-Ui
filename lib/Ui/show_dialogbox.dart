@@ -139,7 +139,7 @@ class _ShowDialogContainerState extends State<ShowDialogContainer> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(20),
+                      padding: const EdgeInsets.all(20),
                       child: SizedBox(
                         height: 45.h,
                         width: MediaQuery.of(context).size.width,

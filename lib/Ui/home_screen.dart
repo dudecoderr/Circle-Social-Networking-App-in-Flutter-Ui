@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:circle_social_networking_app_in_flutter/Ui/show_dialogbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -9,6 +8,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../Constant File/categorys_container_constant.dart';
 import '../animation/fade_animation.dart';
 import '../string constant/text_constant.dart';
+import 'bottom_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -170,98 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
             ///_____________ bottom code ________________
             SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: FadeAnimation(
-                  delay: 2.5,
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 60.h,
-                        width: 230.w,
-                        padding: EdgeInsets.symmetric(horizontal: 8),
-                        decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(50.r)),
-                        child: ListView.builder(
-                          itemCount: listOfIcons.length,
-                          scrollDirection: Axis.horizontal,
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          itemBuilder: (BuildContext context, int index) {
-                            return Center(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 18),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      currentbottomIndex = index;
-                                    });
-                                  },
-                                  child: Icon(
-                                    listOfIcons[index],
-                                    color: index == currentbottomIndex
-                                        ? Colors.white
-                                        : Colors.white70,
-                                    size: index == currentbottomIndex ? 30 : 25,
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      Spacer(),
-                      InkWell(
-                        onTap: () {
-                          showDialog(
-                            barrierColor: Colors.white70,
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(25.r),
-                                ),
-                                insetPadding: EdgeInsets.all(20),
-                                actionsPadding: EdgeInsets.zero,
-                                buttonPadding: EdgeInsets.zero,
-                                contentPadding: EdgeInsets.zero,
-                                content: ShowDialogContainer(),
-                              );
-                            },
-                          );
-                        },
-                        child: Container(
-                          height: 60.h,
-                          width: 70.h,
-                          decoration: const BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                                colors: [
-                                  Color(0xffee7656),
-                                  Color(0xffee7656),
-                                  Color(0xffffa380),
-                                ],
-                              ),
-                              shape: BoxShape.circle),
-                          child: Center(
-                            child: Icon(
-                              Icons.add_circle_outline,
-                              color: Colors.white,
-                              size: 40.sp,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            BottomNavigation(),
           ],
         ),
       ),

@@ -32,6 +32,8 @@ dependencies:
     sdk: flutter
   flutter_screenutil: ^5.6.0
   get: ^4.6.5
+  custom_navigation_bar: ^0.8.2
+
   #___ animation
   simple_animations: ^4.0.1
   supercharged: ^2.1.1
